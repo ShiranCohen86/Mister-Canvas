@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Mister Canvas</title>
+</head>
+
+<body onload="init()">
+
+    <div class="canvas-container">
+        <div class="canvas-display">
+            <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+        </div>
+        <div class="canvas-features">
+            <label for="fill-color">Select fill color:</label>
+            <input type="color" id="fill-color" name="fill-color" value="#ff0000" onchange="setFillColor(value)">
+            <label for="stroke-color">Select border color:</label>
+            <input type="color" id="stroke-color" name="stroke-color" value="#ff0000" onchange="setStrokeColor(value)">
+            <label for="free-text">Write:</label>
+            <input type="text" id="free-text" name="free-text" onkeyup="setShape('text', value)">
+            <label for="shape">Choose a shape:</label>
+            <ul>
+                <li> <button class="triangle" onclick="setShape('triangle')">Triangle</button></li>
+                <li> <button class="rect" onclick="setShape('rect')">Rect</button></li>
+                <li> <button class="line" onclick="setShape('line')">Line</button></li>
+
+            </ul>
+
+            <button onclick="clearCanvas()">Clear</button>
+            <a href="#" onclick="downloadCanvas(this)" download="exported-data.jpg">
+                download
+            </a>
+        </div>
+    </div>
+    <script src="js/misterCanvasService.js"></script>
+    <script src="js/misterCanvasController.js"></script>
+</body>
+
+</html>
